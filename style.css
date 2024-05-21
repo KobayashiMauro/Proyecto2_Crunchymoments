@@ -1,0 +1,54 @@
+/* Initialize styles */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato';
+}
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --KM-color1: #ffffff;
+  --KM-color2: #000000;
+  --KM-color3: #f47521;
+  --KM-color4: #23252b;
+
+  --KM-font: var(--KM-color1);
+  --KM-background: var(--KM-color2);
+  --KM-highlight: var(--KM-color3);
+
+  --KM-border-radius: 15px;
+
+  --KM-margin-xs: 5px;
+  --KM-margin-s: 10px;
+  --KM-margin-m: 20px;
+  --KM-margin-l: 30px;
+  --KM-margin-xl: 40px;
+
+  --KM-padding-xs: 5px;
+  --KM-padding-s: 10px;
+  --KM-padding-m: 20px;
+  --KM-padding-l: 30px;
+  --KM-padding-xl: 40px;
+
+  --KM-gap-xs: 5px;
+  --KM-gap-s: 10px;
+  --KM-gap-m: 20px;
+  --KM-gap-l: 30px;
+  --KM-gap-xl: 40px;
+}
+
+body {
+  background-color: var(--KM-background);
+  color: var(--KM-font);
+}
+/* HEADER */

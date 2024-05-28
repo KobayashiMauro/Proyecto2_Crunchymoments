@@ -14,6 +14,8 @@ ol {
 
 a {
   text-decoration: none;
+  color: var(--KM-font);
+  transition: 0.5s;
 }
 
 :root {
@@ -32,23 +34,107 @@ a {
   --KM-margin-s: 10px;
   --KM-margin-m: 20px;
   --KM-margin-l: 30px;
-  --KM-margin-xl: 40px;
+  --KM-margin-xl: 60px;
 
   --KM-padding-xs: 5px;
   --KM-padding-s: 10px;
   --KM-padding-m: 20px;
   --KM-padding-l: 30px;
-  --KM-padding-xl: 40px;
+  --KM-padding-xl: 60px;
 
   --KM-gap-xs: 5px;
   --KM-gap-s: 10px;
   --KM-gap-m: 20px;
   --KM-gap-l: 30px;
-  --KM-gap-xl: 40px;
+  --KM-gap-xl: 60px;
 }
 
 body {
   background-color: var(--KM-background);
   color: var(--KM-font);
+  font-size: 1rem;
 }
-/* HEADER */
+/* HEADER -------------------------------------------- */
+header,
+nav {
+  min-height: 3.75rem;
+  background-color: var(--KM-highlight);
+}
+nav,
+.left-stuff,
+.icons {
+  display: flex;
+  min-height: 3.75rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.left-stuff {
+  gap: var(--KM-gap-l);
+}
+.left-stuff > a > img {
+  max-height: 30px;
+}
+.icons > a > img {
+  max-height: 25px;
+}
+nav {
+  padding-left: var(--KM-padding-xl);
+  padding-right: var(--KM-padding-xl);
+  margin-left: var(--KM-margin-l);
+  margin-right: var(--KM-margin-l);
+}
+.icons,
+.for-hover {
+  display: flex;
+  align-items: center;
+}
+.icons > a,
+.for-hover > a {
+  padding-right: var(--KM-margin-m);
+  padding-left: var(--KM-margin-m);
+  height: 3.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.for-hover > a:hover {
+  background-color: #6c3715;
+}
+.icons > a:hover {
+  background-color: #6c3715;
+}
+
+/* HERO -------------------------------------------- */
+.hero-all {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.hero-all > article {
+  margin: var(--KM-margin-xl);
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  gap: var(--KM-gap-l);
+}
+.hero-all > article > img {
+  max-width: 80%;
+}
+.hero-all > article > button {
+  background-color: var(--KM-color3);
+  padding: var(--KM-padding-s);
+  max-width: 200px;
+  color: var(--KM-color2);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.hero-all > article > button:hover {
+  background-color: #ff9a57;
+}
+.hero-all > img {
+  max-width: 70%;
+}
+/* POPULAR ---------------------------------------------*/

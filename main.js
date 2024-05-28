@@ -49,7 +49,7 @@ for (const moment of moments) {
   //Me traigo los datos y creo contenedores
   let momentName = document.createTextNode(moment.moment);
   let anime = document.createTextNode(moment.anime);
-  let card = document.createElement('div');
+  let card = document.createElement('article');
   let background = document.createElement('img');
   background.src = moment.image;
   let cardsDiv = document.querySelector('div.cards');

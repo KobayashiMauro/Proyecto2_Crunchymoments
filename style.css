@@ -138,3 +138,42 @@ nav {
   max-width: 70%;
 }
 /* POPULAR ---------------------------------------------*/
+
+/* CARDS ---------------------------------------------*/
+.cards {
+  margin: var(--KM-margin-xl);
+  display: grid;
+  gap: var(--KM-gap-l);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.moment {
+  max-height: 500px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--KM-gap-s);
+  border: solid red;
+}
+/* .moment > a:nth-child(1) {
+  max-height: 500px;
+  max-width: 300px;
+  cursor: pointer;
+  border: solid red;
+}
+.img {
+  max-height: 500px;
+  max-width: 300px;
+} */
+/* .img >  */
+img {
+  height: 85%;
+  object-fit: cover;
+  border: solid red;
+}
+.moment > /* a:nth-child(2) >  */h3 {
+  font-size: 1rem;
+}
+.moment > /* a:nth-child(3) >  */h4 {
+  font-size: 0.8rem;
+  color: #acacac;
+}

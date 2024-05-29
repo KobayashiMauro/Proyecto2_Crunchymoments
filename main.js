@@ -269,53 +269,38 @@ const moments = [
   },
 ];
 /* Print cards --------------------------------------------- */
-/* for (const moment of moments) {
-  //Me traigo los datos y creo contenedores
-  let momentName = document.createTextNode(moment.moment);
-  let anime = document.createTextNode(moment.anime);
-  let card = document.createElement('article');
-  let imgDiv = document.createElement('div');
-  let background = document.createElement('img');
-  background.src = moment.image;
-  let anchorImg = document.createElement('a');
-  let anchorH3 = document.createElement('a');
-  let anchorH4 = document.createElement('a');
-  let cardsDiv = document.querySelector('div.cards');
-  let cardH3 = document.createElement('h3');
-  let cardH4 = document.createElement('h4');
-  card.classList.add('moment');
-  imgDiv.classList.add('img');
-  anchorImg.href = '#';
-  anchorH3.href = '#';
-  anchorH4.href = '#';
-  //Pinto los datos
-  cardsDiv.appendChild(card);
-  card.appendChild(anchorImg);
-  card.appendChild(anchorH3);
-  card.appendChild(anchorH4);
-  anchorImg.appendChild(imgDiv);
-  imgDiv.appendChild(background);
-  cardH3.appendChild(momentName);
-  cardH4.appendChild(anime);
-  anchorH3.appendChild(cardH3);
-  anchorH4.appendChild(cardH4);
-} */
 for (const moment of moments) {
-  //Me traigo los datos y creo contenedores
+  //Me traigo los datos visibles
   let momentName = document.createTextNode(moment.moment);
   let anime = document.createTextNode(moment.anime);
-  let card = document.createElement('div');
+
+  //Creo el contenedor de la tarjeta
+  let card = document.createElement('article');
+  card.classList.add('moment');
+
+  //Dentro de <article> "card":
   let background = document.createElement('img');
   background.src = moment.image;
-  let cardsDiv = document.querySelector('div.cards');
+  let aImg = document.createElement('a');
+  aImg.href = '#';
   let cardH3 = document.createElement('h3');
+  let aH3 = document.createElement('a');
+  aH3.href = '#';
   let cardH4 = document.createElement('h4');
-  card.classList.add('moment');
+  let aH4 = document.createElement('a');
+  aH4.href = '#';
+
+  //Dónde lo voy a meter
+  let cardsDiv = document.querySelector('div.cards');
+
   //Pinto los datos
-  cardsDiv.appendChild(card);
-  card.appendChild(background);
-  cardH3.appendChild(momentName);
-  cardH4.appendChild(anime);
-  card.appendChild(cardH3);
-  card.appendChild(cardH4);
+  cardsDiv.appendChild(card); //article en div
+  card.appendChild(aImg); //enlace imagen en article
+  aImg.appendChild(background); //imagen en enlace imagen
+  card.appendChild(aH3); //enlace H3 en article
+  aH3.appendChild(cardH3); //H3 en enlace H3
+  cardH3.appendChild(momentName); //Texto en H3
+  card.appendChild(aH4); //enlace H4 en article
+  aH4.appendChild(cardH4); //H4 en enlace H4
+  cardH4.appendChild(anime); //Texto en H4
 }

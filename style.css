@@ -165,7 +165,7 @@ nav {
   max-width: 300px;
 } */
 /* .img >  */
-img {
+.moment > img {
   height: 85%;
   object-fit: cover;
   border: solid red;

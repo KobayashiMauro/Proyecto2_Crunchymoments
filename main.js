@@ -269,38 +269,62 @@ const moments = [
   },
 ];
 /* Print cards --------------------------------------------- */
+
 for (const moment of moments) {
   //Me traigo los datos visibles
   let momentName = document.createTextNode(moment.moment);
+  let momentNameHover = document.createTextNode(moment.moment);
   let anime = document.createTextNode(moment.anime);
+  let momentEps = document.createTextNode(moment.episodes);
+  let momentDuration = document.createTextNode(moment.duration);
+  let momentDescription = document.createTextNode(moment.description);
 
   //Creo el contenedor de la tarjeta
   let card = document.createElement('article');
   card.classList.add('moment');
 
+  //Creo el contenedor de la tarjeta:hover
+  let cardHover = document.createElement('div');
+  cardHover.classList.add('momentHover');
+
   //Dentro de <article> "card":
   let background = document.createElement('img');
   background.src = moment.image;
   let aImg = document.createElement('a');
-  aImg.href = '#';
+  aImg.href = moment.links[0].first;
   let cardH3 = document.createElement('h3');
-  let aH3 = document.createElement('a');
-  aH3.href = '#';
   let cardH4 = document.createElement('h4');
-  let aH4 = document.createElement('a');
-  aH4.href = '#';
+
+  //Dentro de <div> "cardHover":
+  let backgroundHover = document.createElement('img');
+  backgroundHover.src = moment.image;
+  let pEps = document.createElement('p');
+  let pDuration = document.createElement('p');
+  let pDescription = document.createElement('p');
+  let h3Hover = document.createElement('h3');
 
   //Dónde lo voy a meter
   let cardsDiv = document.querySelector('div.cards');
+  let cardsArt = card;
 
   //Pinto los datos
   cardsDiv.appendChild(card); //article en div
   card.appendChild(aImg); //enlace imagen en article
   aImg.appendChild(background); //imagen en enlace imagen
-  card.appendChild(aH3); //enlace H3 en article
-  aH3.appendChild(cardH3); //H3 en enlace H3
+  card.appendChild(cardH3); //H3 en enlace H3
   cardH3.appendChild(momentName); //Texto en H3
-  card.appendChild(aH4); //enlace H4 en article
-  aH4.appendChild(cardH4); //H4 en enlace H4
+  card.appendChild(cardH4); //H4 en enlace H4
   cardH4.appendChild(anime); //Texto en H4
+
+  // Pinto los datos del hover
+  cardsArt.appendChild(cardHover); //div en enlace
+  cardHover.appendChild(backgroundHover); //imagen en div
+  h3Hover.appendChild(momentNameHover); //nombre en h3
+  cardHover.appendChild(h3Hover); //h3 en div
+  cardHover.appendChild(pEps); //p en div
+  cardHover.appendChild(pDuration); //p en div
+  cardHover.appendChild(pDescription); //p en div
+  pEps.appendChild(momentEps); //episodios en p
+  pDuration.appendChild(momentDuration); //duración en p
+  pDescription.appendChild(momentDescription); //descripción en p
 }

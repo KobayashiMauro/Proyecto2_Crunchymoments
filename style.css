@@ -145,52 +145,97 @@ nav {
   margin: var(--KM-margin-xl);
   display: grid;
   gap: var(--KM-gap-l);
-  grid-auto-rows: 500px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 450px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
-.moment {
-  max-height: 500px;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--KM-gap-s);
+.cards > a {
+  max-height: 450px;
+  max-width: 250px;
+  cursor: pointer;
   position: relative;
 }
 
-.moment > a:nth-child(1) {
-  height: 85%;
+.moment {
+  height: 100%;
   width: 100%;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: var(--KM-gap-s);
   opacity: 1;
 }
-.moment > a:nth-child(1) > img {
-  height: 100%;
+.moment > img {
+  height: 85%;
   width: 100%;
   object-fit: cover;
 }
 .moment > h3 {
   font-size: 1rem;
-  position: relative;
 }
 .moment > h4 {
   font-size: 0.8rem;
   color: #959595;
-  position: relative;
 }
 /* PRUEBA HOVER ----------------------- */
 .momentHover {
-  display: flex;
   position: absolute;
   left: 0;
   top: 0;
   opacity: 0;
   height: 100%;
   width: 100%;
+  transition: opacity 0.15s ease-in-out;
+  /*   transition: 0.5s; */
 }
-.momentHover > img {
+.momentHover > div:first-child {
   height: 100%;
+  width: 100%;
+}
+.momentHover > div:first-child::before {
+  box-shadow: 10px 10px 48px 175px rgba(0, 0, 0, 0.78) inset;
+  -webkit-box-shadow: 10px 10px 48px 175px rgba(0, 0, 0, 0.78) inset;
+  -moz-box-shadow: 10px 10px 48px 175px rgba(0, 0, 0, 0.78) inset;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.momentHover > div:first-child > img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-  box-shadow: 10px 10px 5px 182px rgba(0, 0, 0, 0.56) inset;
-  -webkit-box-shadow: 10px 10px 5px 182px rgba(0, 0, 0, 0.56) inset;
-  -moz-box-shadow: 10px 10px 5px 182px rgba(0, 0, 0, 0.56) inset;
+}
+.momentHover-text {
+  display: flex;
+  flex-direction: column;
+  margin: var(--KM-margin-m);
+  gap: var(--KM-gap-s);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.momentHover-text > p {
+  font-size: 0.8rem;
+}
+.momentHover-icons {
+  display: flex;
+  flex-direction: row;
+  margin: var(--KM-margin-m);
+  gap: var(--KM-gap-m);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.momentHover-icons > button {
+  background: none;
+  border-style: none;
+  cursor: pointer;
+}
+.momentHover-icons > button > img {
+  height: 25px;
+}
+.cards > a:hover > .momentHover {
+  opacity: 1;
 }

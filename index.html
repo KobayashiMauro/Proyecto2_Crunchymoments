@@ -44,7 +44,27 @@
     </section>
     <section>
       <div class="filter">
-        <h3>Encuentra los momentos más épicos</h3>
+        <div class="visible">
+          <h3>Encuentra los momentos más épicos</h3>
+          <form id="form-simple">
+            <div class="search-text-container">
+              <input id="search-text" type="search" placeholder="Buscar..." />
+              <button id="form-simple-button"><img src="assets/PNGLupaBlanca.png" alt="" /></button>
+            </div>
+          </form>
+        </div>
+        <div class="hidden">
+          <form id="form-detailed">
+            <label for="anime-list">Busca por anime</label>
+            <select name="anime-list" id="anime-list">
+              <option value="One Piece">One Piece</option>
+              <option value="Naruto">Naruto</option>
+              <option value="Kimetsu no Yaiba">Kimetsu no Yaiba</option>
+              <option value="Jujutsu Kaisen">Jujutsu Kaisen</option>
+            </select>
+            <button></button>
+          </form>
+        </div>
       </div>
       <div class="cards">
         <!-- Aquí van los article? Las tarjetas con lo que hay -->

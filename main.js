@@ -1,6 +1,7 @@
 const moments = [
   //Kakashi
   {
+    searchCount: '0',
     moment: 'Equipo Kakashi VS Sasori',
     anime: 'Naruto Shippuden',
     characters: [
@@ -23,6 +24,7 @@ const moments = [
   },
   //Carrot
   {
+    searchCount: '0',
     moment: 'Sulong de Carrot',
     anime: 'One Piece',
     characters: [
@@ -42,6 +44,7 @@ const moments = [
   },
   //Law
   {
+    searchCount: '1',
     moment: 'Law VS Kurohige',
     anime: 'One Piece',
     characters: [
@@ -65,6 +68,7 @@ const moments = [
   },
   //Tengen
   {
+    searchCount: '0',
     moment: 'Tengen Uzui VS Gyutaro',
     anime: 'Kimetsu no Yaiba',
     characters: [
@@ -85,6 +89,7 @@ const moments = [
   },
   //Gojo
   {
+    searchCount: '0',
     moment: 'Satoru Gojo, y ya',
     anime: 'Jujutsu Kaisen',
     characters: [
@@ -104,6 +109,7 @@ const moments = [
   },
   //Zoro
   {
+    searchCount: '0',
     moment: 'Zoro VS King',
     anime: 'One Piece',
     characters: [
@@ -122,6 +128,7 @@ const moments = [
     ],
   },
   {
+    searchCount: '0',
     moment: 'El pasado de Law',
     anime: 'One Piece',
     characters: [
@@ -150,6 +157,7 @@ const moments = [
     ],
   },
   {
+    searchCount: '0',
     moment: 'El pasado de Law',
     anime: 'One Piece',
     characters: [
@@ -178,6 +186,7 @@ const moments = [
     ],
   },
   {
+    searchCount: '0',
     moment: 'El pasado de Law',
     anime: 'One Piece',
     characters: [
@@ -206,6 +215,7 @@ const moments = [
     ],
   },
   {
+    searchCount: '0',
     moment: 'El pasado de Law',
     anime: 'One Piece',
     characters: [
@@ -234,10 +244,18 @@ const moments = [
     ],
   },
 ];
-/* Print cards --------------------------------------------- */
 
-function printCards(param) {
-  for (const moment of moments) {
+/* Global variables ----------------------------------------------- */
+let searchButton = document.getElementById('form-simple-button');
+let searchBar = document.getElementById('search-text');
+let cardsContainer = document.querySelector('div.cards');
+let popularContainer = document.querySelector('div.popular');
+/* Functions ----------------------------------------------- */
+//General
+function createCards(param, container) {
+  /*   let cardsDiv = document.querySelector('div.cards');*/
+  container.innerHTML = '';
+  for (const moment of param) {
     //Me traigo los datos visibles
     let momentName = document.createTextNode(moment.moment);
     let momentNameHover = document.createTextNode(moment.moment);
@@ -287,11 +305,10 @@ function printCards(param) {
     hoverIconAdd.src = './assets/PNGNaranjaAdd.png';
 
     //Dónde lo voy a meter
-    let cardsDiv = document.querySelector('div.cards');
     let cardsArt = card;
 
     //Pinto los datos
-    cardsDiv.appendChild(aImg); //article en div
+    container.appendChild(aImg); //article en div específico
     aImg.appendChild(card); //enlace imagen en article
     card.appendChild(background); //imagen en enlace imagen
     card.appendChild(cardH3); //H3 en enlace H3
@@ -321,14 +338,64 @@ function printCards(param) {
     buttonAdd.appendChild(hoverIconAdd);
   }
 }
-
-printCards(moments);
-
-let searchButton = document.getElementById('form-simple-button');
-let searchBar = document.getElementById('search-text');
-
-searchButton.onclick = function searchEvent(event) {
+function printCards(param) {
+  createCards(param, cardsContainer);
+}
+//Popular
+function printPopular(param) {
+  moments.sort((a, b) => parseInt(b.searchCount) - parseInt(a.searchCount));
+  console.log(moments);
+  const popularMoments = [];
+  for (let i = 0; i < 6; i++) {
+    popularMoments.push(moments[i]);
+  }
+  createCards(popularMoments, popularContainer);
+}
+//Para "moment"/search bar
+const momentFinder = function searchEvent(event) {
   event.preventDefault();
-  let searchInputText = searchBar.value;
-  console.log(searchInputText);
+  let searchInputText = searchBar.value.toLowerCase();
+  const momentArray = [];
+  for (const moment of moments) {
+    console.log(moment);
+    let momentMoment = moment.moment.toLowerCase();
+    if (momentMoment.includes(searchInputText) == true) {
+      momentArray.push(moment);
+      let searchCounter = parseInt(moment.searchCount);
+      searchCounter += 1;
+      moment.searchCount = searchCounter.toString();
+      printPopular(moments);
+    }
+  }
+  printCards(momentArray);
 };
+//Para "character"/search bar
+const characterFinder = function searchEvent(event) {
+  event.preventDefault();
+  let searchInputText = searchBar.value.toLowerCase();
+  const characterArray = [];
+  for (const moment of moments) {
+    let searchCounter = parseInt(moment.searchCount);
+    for (const character of moment.characters) {
+      for (const key in character) {
+        if (character.hasOwnProperty(key)) {
+          let momentCharacter = character[key].toLowerCase();
+          if (momentCharacter.includes(searchInputText)) {
+            characterArray.push(moment);
+            searchCounter += 1;
+            moment.searchCount = searchCounter.toString();
+            printPopular(moments);
+            break;
+          }
+        }
+      }
+    }
+  }
+  printCards(characterArray);
+};
+
+/* Print cards --------------------------------------------- */
+searchButton.onclick = momentFinder;
+searchButton.onclick = characterFinder;
+printCards(moments); //all
+printPopular(moments);

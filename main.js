@@ -127,6 +127,27 @@ const moments = [
       },
     ],
   },
+  //Luffy
+  {
+    searchCount: '0',
+    moment: 'Gear 5 de Luffy',
+    anime: 'One Piece',
+    characters: [
+      {
+        first: 'Monkey D. Luffy',
+      },
+    ],
+    episodes: 3,
+    duration: 72,
+    description: 'Uno de los momentos más épicos y esperados de la saga',
+    image: 'assets/Luffycard.jpg',
+    links: [
+      {
+        first: 'https://www.crunchyroll.com/es-es/watch/G7PU4J9E7/luffys-peak--attained-gear-five',
+      },
+    ],
+  },
+  //Mini Law
   {
     searchCount: '0',
     moment: 'El pasado de Law',
@@ -142,7 +163,7 @@ const moments = [
     duration: 192,
     description:
       '¡El pasado de Law se revela! La motivación de Law para acabar con Doflamingo y el recuerdo de Corazón.',
-    image: 'assets/Lawminicard2.jpg',
+    image: 'assets/Lawminicard.png',
     links: [
       {
         first: 'https://www.crunchyroll.com/es-es/watch/G62P5G3K6/the-ultimate-power-the-secret-of-the-op-op-fruit',
@@ -156,90 +177,88 @@ const moments = [
       },
     ],
   },
+  //Sasuke
   {
     searchCount: '0',
-    moment: 'El pasado de Law',
-    anime: 'One Piece',
+    moment: 'Saskue VS Itachi',
+    anime: 'Naruto Shippuden',
     characters: [
       {
-        first: 'Trafalgar D. Water Law',
-        second: 'Donquixote Doflamingo',
-        third: 'Donquixote Rosinante Corazon',
+        first: 'Uchiha Sasuke',
+        second: 'Uchiha Itachi',
       },
     ],
-    episodes: 8,
-    duration: 192,
+    episodes: 10,
+    duration: 240,
     description:
-      '¡El pasado de Law se revela! La motivación de Law para acabar con Doflamingo y el recuerdo de Corazón.',
-    image: 'assets/Lawminicard2.jpg',
+      'Una pelea a muerte entre hermanos, Sasuke por fin cumple su "sueño" de vengar a su familia... ¿a qué precio?',
+    image: 'assets/Sasuitacard.png',
     links: [
       {
-        first: 'https://www.crunchyroll.com/es-es/watch/G62P5G3K6/the-ultimate-power-the-secret-of-the-op-op-fruit',
-        second: 'https://www.crunchyroll.com/es-es/watch/G6ZX4ENXR/sad-memories-law-the-boy-from-the-white-town',
-        third: 'https://www.crunchyroll.com/es-es/watch/GYQ49DV96/a-celestial-dragon-doffys-stormy-past',
-        fourth: 'https://www.crunchyroll.com/es-es/watch/GYQ49DV96/a-celestial-dragon-doffys-stormy-past',
-        fifth: 'https://www.crunchyroll.com/es-es/watch/GRWEMW72R/a-rocky-road-law-and-corazons-journey-of-life',
-        sixth: 'https://www.crunchyroll.com/es-es/watch/G60975NM6/the-time-is-ticking-down-seize-the-op-op-fruit',
-        seventh: 'https://www.crunchyroll.com/es-es/watch/G6751XE4R/the-moment-of-resolution-corazons-farewell-smile',
-        eighth: 'https://www.crunchyroll.com/es-es/watch/GYX0MGX5R/advance-law-the-kindhearted-mans-final-fight',
+        first: 'https://www.crunchyroll.com/es-es/watch/GRP81P8GR/banquet-invitation',
       },
     ],
   },
+  //Frieren
   {
     searchCount: '0',
-    moment: 'El pasado de Law',
-    anime: 'One Piece',
+    moment: 'Pelea contra demonios',
+    anime: 'Frieren',
     characters: [
       {
-        first: 'Trafalgar D. Water Law',
-        second: 'Donquixote Doflamingo',
-        third: 'Donquixote Rosinante Corazon',
+        first: 'Frieren',
+        second: 'Fern',
+        third: 'Stark',
       },
     ],
-    episodes: 8,
-    duration: 192,
-    description:
-      '¡El pasado de Law se revela! La motivación de Law para acabar con Doflamingo y el recuerdo de Corazón.',
-    image: 'assets/Lawminicard2.jpg',
+    episodes: 4,
+    duration: 96,
+    description: 'Una pelea increíble llena de magia, estrategia y fuerza ',
+    image: 'assets/Frierencard.jpg',
     links: [
       {
-        first: 'https://www.crunchyroll.com/es-es/watch/G62P5G3K6/the-ultimate-power-the-secret-of-the-op-op-fruit',
-        second: 'https://www.crunchyroll.com/es-es/watch/G6ZX4ENXR/sad-memories-law-the-boy-from-the-white-town',
-        third: 'https://www.crunchyroll.com/es-es/watch/GYQ49DV96/a-celestial-dragon-doffys-stormy-past',
-        fourth: 'https://www.crunchyroll.com/es-es/watch/GYQ49DV96/a-celestial-dragon-doffys-stormy-past',
-        fifth: 'https://www.crunchyroll.com/es-es/watch/GRWEMW72R/a-rocky-road-law-and-corazons-journey-of-life',
-        sixth: 'https://www.crunchyroll.com/es-es/watch/G60975NM6/the-time-is-ticking-down-seize-the-op-op-fruit',
-        seventh: 'https://www.crunchyroll.com/es-es/watch/G6751XE4R/the-moment-of-resolution-corazons-farewell-smile',
-        eighth: 'https://www.crunchyroll.com/es-es/watch/GYX0MGX5R/advance-law-the-kindhearted-mans-final-fight',
+        first: 'https://www.crunchyroll.com/es-es/watch/G4VUQ1ZKW/like-a-fairy-tale',
       },
     ],
   },
+  //Osoba Mask
   {
     searchCount: '0',
-    moment: 'El pasado de Law',
+    moment: 'Osoba Mask',
     anime: 'One Piece',
     characters: [
       {
-        first: 'Trafalgar D. Water Law',
-        second: 'Donquixote Doflamingo',
-        third: 'Donquixote Rosinante Corazon',
+        first: 'Osoba Mask Sanji Vinsmoke',
       },
     ],
-    episodes: 8,
-    duration: 192,
+    episodes: 2,
+    duration: 48,
     description:
-      '¡El pasado de Law se revela! La motivación de Law para acabar con Doflamingo y el recuerdo de Corazón.',
-    image: 'assets/Lawminicard2.jpg',
+      'Aún renegando de su familia, Sanji aprovecha la pelea contra Page One para probar el traje que le ha dado el Germa 66',
+    image: 'assets/Osobamaskcard.jpg',
     links: [
       {
-        first: 'https://www.crunchyroll.com/es-es/watch/G62P5G3K6/the-ultimate-power-the-secret-of-the-op-op-fruit',
-        second: 'https://www.crunchyroll.com/es-es/watch/G6ZX4ENXR/sad-memories-law-the-boy-from-the-white-town',
-        third: 'https://www.crunchyroll.com/es-es/watch/GYQ49DV96/a-celestial-dragon-doffys-stormy-past',
-        fourth: 'https://www.crunchyroll.com/es-es/watch/GYQ49DV96/a-celestial-dragon-doffys-stormy-past',
-        fifth: 'https://www.crunchyroll.com/es-es/watch/GRWEMW72R/a-rocky-road-law-and-corazons-journey-of-life',
-        sixth: 'https://www.crunchyroll.com/es-es/watch/G60975NM6/the-time-is-ticking-down-seize-the-op-op-fruit',
-        seventh: 'https://www.crunchyroll.com/es-es/watch/G6751XE4R/the-moment-of-resolution-corazons-farewell-smile',
-        eighth: 'https://www.crunchyroll.com/es-es/watch/GYX0MGX5R/advance-law-the-kindhearted-mans-final-fight',
+        first: 'https://www.crunchyroll.com/es-es/watch/GY5PWQ1QY/dashing-the-righteous-soba-mask',
+      },
+    ],
+  },
+  //Rengoku
+  {
+    searchCount: '0',
+    moment: 'Haz arder tu corazón',
+    anime: 'Kimetsu no Yaiba',
+    characters: [
+      {
+        first: 'Rengoku Pilar del fuego',
+      },
+    ],
+    episodes: 1,
+    duration: 24,
+    description: 'El agrio final de una batalla tremenda',
+    image: 'assets/Rengokucard.jpg',
+    links: [
+      {
+        first: 'https://www.crunchyroll.com/es-es/watch/G0DUN0X5Z/set-your-heart-ablaze',
       },
     ],
   },
@@ -393,9 +412,27 @@ const characterFinder = function searchEvent(event) {
   }
   printCards(characterArray);
 };
+const animeFinder = function searchEvent(event) {
+  event.preventDefault();
+  let searchInputText = searchBar.value.toLowerCase();
+  const animeArray = [];
+  for (const moment of moments) {
+    console.log(moment);
+    let momentAnime = moment.anime.toLowerCase();
+    if (momentAnime.includes(searchInputText) == true) {
+      animeArray.push(moment);
+      let searchCounter = parseInt(moment.searchCount);
+      searchCounter += 1;
+      moment.searchCount = searchCounter.toString();
+      printPopular(moments);
+    }
+  }
+  printCards(animeArray);
+};
 
 /* Print cards --------------------------------------------- */
 searchButton.onclick = momentFinder;
 searchButton.onclick = characterFinder;
+searchButton.onclick = animeFinder;
 printCards(moments); //all
 printPopular(moments);

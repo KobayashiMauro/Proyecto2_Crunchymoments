@@ -11,13 +11,11 @@ ul,
 ol {
   list-style: none;
 }
-
 a {
   text-decoration: none;
   color: var(--KM-font);
   transition: 0.5s;
 }
-
 :root {
   --KM-color1: #ffffff;
   --KM-color2: #000000;
@@ -48,7 +46,6 @@ a {
   --KM-gap-l: 30px;
   --KM-gap-xl: 60px;
 }
-
 body {
   background-color: var(--KM-background);
   color: var(--KM-font);
@@ -61,6 +58,7 @@ nav {
   width: 100%;
   background-color: var(--KM-highlight);
   position: fixed;
+  z-index: 2;
 }
 nav,
 .left-stuff,
@@ -123,7 +121,7 @@ nav {
 .hero-all > article > img {
   max-width: 80%;
 }
-.hero-all > article > button {
+.hero-all > article > a > button {
   background-color: var(--KM-color3);
   padding: var(--KM-padding-s);
   max-width: 200px;
@@ -133,13 +131,19 @@ nav {
   cursor: pointer;
   transition: 0.5s;
 }
-.hero-all > article > button:hover {
+.hero-all > article > a > button:hover {
   background-color: #ff9a57;
 }
 .hero-all > img {
   max-width: 70%;
 }
 /* POPULAR ---------------------------------------------*/
+.popular-all {
+  box-shadow: -1px -133px 93px -59px rgba(244, 117, 33, 0.81) inset;
+  -webkit-box-shadow: -1px -133px 93px -59px rgba(244, 117, 33, 0.81) inset;
+  -moz-box-shadow: -1px -133px 93px -59px rgba(244, 117, 33, 0.81) inset;
+  padding-bottom: var(--KM-padding-xl);
+}
 .popular {
   height: auto;
   margin: var(--KM-margin-xl);
@@ -154,9 +158,24 @@ nav {
   cursor: pointer;
   position: relative;
 }
-.popular-all > h3 {
-  font-size: 1.5rem;
+.popular-all > div:first-child {
   margin-left: var(--KM-margin-xl);
+  margin-right: var(--KM-margin-xl);
+  padding-bottom: var(--KM-padding-m);
+}
+.popular-all > div > h3 {
+  font-size: 1.5rem;
+}
+.popular-all > div:first-child::after {
+  content: '';
+  margin-left: var(--KM-margin-xl);
+  margin-right: var(--KM-margin-xl);
+  margin-top: var(--KM-padding-m);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Altura del borde */
+  background: linear-gradient(to right, #f47521, #f4752115, #f4752100);
 }
 /* FILTERS ---------------------------------------------*/
 .filter {
@@ -233,7 +252,7 @@ nav {
   font-size: 0.8rem;
   color: #959595;
 }
-/* HOVER ----------------------- */
+/* CARDS HOVER ----------------------- */
 .momentHover {
   position: absolute;
   left: 0;
@@ -294,5 +313,8 @@ nav {
   height: 25px;
 }
 .cards > a:hover > .momentHover {
+  opacity: 1;
+}
+.popular > a:hover > .momentHover {
   opacity: 1;
 }

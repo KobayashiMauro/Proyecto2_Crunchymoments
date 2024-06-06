@@ -34,16 +34,16 @@
           tu serie favorita? ¿O querrías ver en cuántos momentos tu personaje favorito es el protagonista de la
           historia?
         </p>
-        <button>COMENZAR A EXPLORAR</button>
+        <a href="#explore"><button>COMENZAR A EXPLORAR</button></a>
       </article>
       <img class="hero-img" src="assets/Lawhero.JPEG" alt="LawHero" />
     </section>
     <section class="popular-all">
-      <h3>Lo más popular</h3>
+      <div><h3>Lo más popular</h3></div>
       <div class="popular"></div>
       <!-- Aquí van los article? Las tarjetas con lo popular -->
     </section>
-    <section>
+    <section id="explore">
       <div class="filter">
         <div class="visible">
           <h3>Encuentra los momentos más épicos</h3>
@@ -58,11 +58,16 @@
           <form id="form-detailed">
             <label for="anime-list">Busca por anime</label>
             <select name="anime-list" id="anime-list">
-              <option value="One Piece">One Piece</option>
-              <option value="Naruto">Naruto</option>
-              <option value="Kimetsu no Yaiba">Kimetsu no Yaiba</option>
-              <option value="Jujutsu Kaisen">Jujutsu Kaisen</option>
+              <!-- Aquí meter las options desde "moments.anime" -->
             </select>
+            <label for="character-list">Busca por personaje</label>
+            <select name="character-list" id="character-list">
+              <!-- Aquí meter las options desde "moments.anime" -->
+            </select>
+            <input type="radio" id="under5" value="under5" name="episodes" />Menos de 5
+            <input type="radio" id="5to20" value="5to20" name="episodes" />De 5 a 20
+            <input type="radio" id="20to50" value="20to50" name="episodes" />De 20 a 50
+            <input type="radio" id="more50" value="more50" name="episodes" />Más de 50
             <button></button>
           </form>
         </div>

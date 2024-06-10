@@ -180,7 +180,7 @@ const moments = [
   //Sasuke
   {
     searchCount: '0',
-    moment: 'Saskue VS Itachi',
+    moment: 'Sasuke VS Itachi',
     anime: 'Naruto Shippuden',
     characters: [
       {
@@ -269,11 +269,13 @@ let searchButton = document.getElementById('form-simple-button');
 let searchBar = document.getElementById('search-text');
 let cardsContainer = document.querySelector('div.cards');
 let popularContainer = document.querySelector('div.popular');
-/* Functions ----------------------------------------------- */
+let animeSelector = document.getElementById('anime-list');
+let buttonGo = document.querySelector('.button-go');
+
+/* FUNCTIONS ----------------------------------------------- */
 //General
 function createCards(param, container) {
-  /*   let cardsDiv = document.querySelector('div.cards');*/
-  container.innerHTML = '';
+  /*  container.innerHTML = ''; */
   for (const moment of param) {
     //Me traigo los datos visibles
     let momentName = document.createTextNode(moment.moment);
@@ -357,50 +359,70 @@ function createCards(param, container) {
     buttonAdd.appendChild(hoverIconAdd);
   }
 }
-function printCards(param) {
-  createCards(param, cardsContainer);
-}
 //Popular
 function printPopular(param) {
   moments.sort((a, b) => parseInt(b.searchCount) - parseInt(a.searchCount));
-  console.log(moments);
   const popularMoments = [];
   for (let i = 0; i < 6; i++) {
     popularMoments.push(moments[i]);
   }
+  popularContainer.innerHTML = '';
   createCards(popularMoments, popularContainer);
 }
-//Para "moment"/search bar
-const momentFinder = function searchEvent(event) {
-  event.preventDefault();
-  let searchInputText = searchBar.value.toLowerCase();
-  const momentArray = [];
-  for (const moment of moments) {
-    console.log(moment);
-    let momentMoment = moment.moment.toLowerCase();
-    if (momentMoment.includes(searchInputText) == true) {
-      momentArray.push(moment);
-      let searchCounter = parseInt(moment.searchCount);
-      searchCounter += 1;
-      moment.searchCount = searchCounter.toString();
-      printPopular(moments);
+//Explore
+function printCards(param) {
+  cardsContainer.innerHTML = '';
+  createCards(param, cardsContainer);
+}
+//Para crear las options de "anime-list"/selector
+function animeList(param, container) {
+  const uniqueAnimes = [];
+  for (const moment of param) {
+    if (!uniqueAnimes.includes(moment.anime)) {
+      uniqueAnimes.push(moment.anime);
     }
   }
-  printCards(momentArray);
-};
-//Para "character"/search bar
-const characterFinder = function searchEvent(event) {
+  for (const anime of uniqueAnimes) {
+    let option = document.createElement('option');
+    option.value = anime;
+    option.textContent = anime;
+    container.appendChild(option);
+  }
+}
+//Filtro "searchbar"
+const searchAll = function searchEvent(event) {
   event.preventDefault();
   let searchInputText = searchBar.value.toLowerCase();
-  const characterArray = [];
+  const resultArray = [];
   for (const moment of moments) {
     let searchCounter = parseInt(moment.searchCount);
+    let momentInfo = moment.moment.toLowerCase();
+    let animeInfo = moment.anime.toLowerCase();
     for (const character of moment.characters) {
       for (const key in character) {
         if (character.hasOwnProperty(key)) {
-          let momentCharacter = character[key].toLowerCase();
-          if (momentCharacter.includes(searchInputText)) {
-            characterArray.push(moment);
+          let momentInfoTrue = momentInfo.includes(searchInputText);
+          let animeInfoTrue = animeInfo.includes(searchInputText);
+          let characterInfoTrue = character[key].toLowerCase().includes(searchInputText);
+          if (characterInfoTrue) {
+            console.log(moment);
+            resultArray.push(moment);
+            searchCounter += 1;
+            moment.searchCount = searchCounter.toString();
+            printPopular(moments);
+            break;
+          }
+          if (animeInfoTrue) {
+            console.log(moment);
+            resultArray.push(moment);
+            searchCounter += 1;
+            moment.searchCount = searchCounter.toString();
+            printPopular(moments);
+            break;
+          }
+          if (momentInfoTrue) {
+            console.log(moment);
+            resultArray.push(moment);
             searchCounter += 1;
             moment.searchCount = searchCounter.toString();
             printPopular(moments);
@@ -410,29 +432,18 @@ const characterFinder = function searchEvent(event) {
       }
     }
   }
-  printCards(characterArray);
+  cardsContainer.innerHTML = '';
+  printCards(resultArray);
+  console.log(resultArray);
 };
-const animeFinder = function searchEvent(event) {
-  event.preventDefault();
-  let searchInputText = searchBar.value.toLowerCase();
-  const animeArray = [];
-  for (const moment of moments) {
-    console.log(moment);
-    let momentAnime = moment.anime.toLowerCase();
-    if (momentAnime.includes(searchInputText) == true) {
-      animeArray.push(moment);
-      let searchCounter = parseInt(moment.searchCount);
-      searchCounter += 1;
-      moment.searchCount = searchCounter.toString();
-      printPopular(moments);
-    }
-  }
-  printCards(animeArray);
+//Otros filtros
+const otherFilters = function (event) {
+  console.log(resultArray);
 };
 
-/* Print cards --------------------------------------------- */
-searchButton.onclick = momentFinder;
-searchButton.onclick = characterFinder;
-searchButton.onclick = animeFinder;
+/* FUNCTION CALLS & EVENTS --------------------------------------------- */
 printCards(moments); //all
 printPopular(moments);
+animeList(moments, animeSelector);
+searchButton.onclick = searchAll;
+buttonGo.onclick = otherFilters;

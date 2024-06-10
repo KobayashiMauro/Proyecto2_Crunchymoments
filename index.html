@@ -56,19 +56,27 @@
         </div>
         <div class="hidden">
           <form id="form-detailed">
-            <label for="anime-list">Busca por anime</label>
-            <select name="anime-list" id="anime-list">
-              <!-- Aquí meter las options desde "moments.anime" -->
-            </select>
-            <label for="character-list">Busca por personaje</label>
-            <select name="character-list" id="character-list">
-              <!-- Aquí meter las options desde "moments.anime" -->
-            </select>
-            <input type="radio" id="under5" value="under5" name="episodes" />Menos de 5
-            <input type="radio" id="5to20" value="5to20" name="episodes" />De 5 a 20
-            <input type="radio" id="20to50" value="20to50" name="episodes" />De 20 a 50
-            <input type="radio" id="more50" value="more50" name="episodes" />Más de 50
-            <button></button>
+            <div class="select-inputs">
+              <label for="anime-list">Busca por anime</label>
+              <select name="anime-list" id="anime-list">
+                <option value="" selected disabled>Seleccionar...</option>
+                <!-- Aquí meter las options desde "moments.anime" -->
+              </select>
+            </div>
+            <div class="radio-inputs">
+              <input type="radio" id="under5" value="under5" name="episodes" />
+              <label for="under5">Menos de 5 episodios</label>
+              <input type="radio" id="5to20" value="5to20" name="episodes" />
+              <label for="5to20">De 2 a 20 episodios</label>
+              <input type="radio" id="20to50" value="20to50" name="episodes" />
+              <label for="20to50">De 20 a 50 episodios</label>
+              <input type="radio" id="more50" value="more50" name="episodes" />
+              <label for="more50">Más de 50 episodios</label>
+            </div>
+            <div class="filter-buttons">
+              <button class="button-go"><img src="./assets/filter.png" alt="Filtro" /><span>FILTRAR</span></button>
+              <button class="button-reset" type="reset">BORRAR FILTROS</button>
+            </div>
           </form>
         </div>
       </div>

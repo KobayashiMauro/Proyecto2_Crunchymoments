@@ -441,14 +441,14 @@ footer {
 footer p {
   font-size: 0.8rem;
 }
-.arrow-menu {
+.menu-container {
   display: none;
   height: 25px;
 }
-.arrow-menu > input {
+.menu-container > input {
   display: none;
 }
-.arrow-menu > label > img {
+.arrow-menu > img {
   height: 100%;
 }
 .icons-for-menu-hidden {
@@ -457,9 +457,11 @@ footer p {
 /* MEDIA QUERIES -------------------------------- */
 @media (max-width: 820px) and (min-width: 570px) {
   /* MENÚ DESPLEGABLE --------------------------- */
-  .arrow-menu {
+  .menu-container {
     display: block;
     cursor: pointer;
+  }
+  .arrow-menu img {
     transition: transform 0.3s ease;
   }
   .for-hover {
@@ -475,12 +477,17 @@ footer p {
     padding: 1rem 0;
   }
   .left-stuff:hover .for-hover,
-  #menu-toggle:checked .for-hover,
   .for-hover:hover {
     display: block;
   }
-  .left-stuff:hover .arrow-menu,
-  .for-hover:hover ~ .arrow-menu {
+  #menu-toggle:checked ~ .for-hover {
+    display: block;
+  }
+  .left-stuff:hover .arrow-menu img,
+  .for-hover:hover ~ .arrow-menu img {
+    transform: rotate(90deg);
+  }
+  #menu-toggle:checked ~ .arrow-menu img {
     transform: rotate(90deg);
   }
   /* CORRECCIÓN HERO ------------------------------ */
@@ -505,9 +512,11 @@ footer p {
   .icons-for-menu {
     display: none;
   }
-  .arrow-menu {
+  .menu-container {
     display: block;
     cursor: pointer;
+  }
+  .arrow-menu img {
     transition: transform 0.3s ease;
   }
   .icons-for-menu-hidden {
@@ -542,15 +551,19 @@ footer p {
   .left-stuff:hover .icons-for-menu-hidden,
   .icons-for-menu-hidden:hover,
   .arrow-menu:hover + .for-hover,
-  .arrow-menu:hover + .icons-for-menu-hidden,
+  .arrow-menu:hover + .icons-for-menu-hidden {
+    display: block;
+  }
   #menu-toggle:checked + .for-hover,
   #menu-toggle:checked + .icons-for-menu-hidden {
     display: block;
   }
-  .left-stuff:hover .arrow-menu,
-  .for-hover:hover ~ .arrow-menu,
-  .icons-for-menu-hidden:hover ~ .arrow-menu,
-  #menu-toggle:checked ~ .arrow-menu {
+  .left-stuff:hover .arrow-menu img,
+  .for-hover:hover ~ .arrow-menu img,
+  .icons-for-menu-hidden:hover ~ .arrow-menu img {
+    transform: rotate(90deg);
+  }
+  #menu-toggle:checked ~ .arrow-menu img {
     transform: rotate(90deg);
   }
   /* CORRECCIÓN HERO ------------------------------ */

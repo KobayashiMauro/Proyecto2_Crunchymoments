@@ -489,6 +489,7 @@ footer p {
   /* CORRECCIÓN HERO ------------------------------ */
   .hero-all {
     background-image: url(assets/Lawherodarkened.JPEG);
+    max-height: 620px;
   }
   .hero-all > article {
     width: 90%;
@@ -555,6 +556,7 @@ footer p {
   /* CORRECCIÓN HERO ------------------------------ */
   .hero-all {
     background-image: url(assets/Lawherodarkened.JPEG);
+    max-height: 620px;
   }
   .hero-all > article {
     width: 90%;

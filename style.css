@@ -169,12 +169,6 @@ nav {
 .hero-all > article > a > button:hover {
   background-color: #ff9a57;
 }
-/* .hero-all > img {
-  margin-top: var(--KM-margin-xl);
-  object-fit: cover;
-  width: 60%;
-  min-width: 375px;
-} */
 /* POPULAR ---------------------------------------------*/
 .popular-all {
   box-shadow: -1px -133px 93px -59px rgba(244, 117, 33, 0.81) inset;
@@ -451,7 +445,10 @@ footer p {
   display: none;
   height: 25px;
 }
-.arrow-menu img {
+.arrow-menu > input {
+  display: none;
+}
+.arrow-menu > label > img {
   height: 100%;
 }
 .icons-for-menu-hidden {
@@ -478,6 +475,7 @@ footer p {
     padding: 1rem 0;
   }
   .left-stuff:hover .for-hover,
+  #menu-toggle:checked .for-hover,
   .for-hover:hover {
     display: block;
   }
@@ -544,12 +542,15 @@ footer p {
   .left-stuff:hover .icons-for-menu-hidden,
   .icons-for-menu-hidden:hover,
   .arrow-menu:hover + .for-hover,
-  .arrow-menu:hover + .icons-for-menu-hidden {
+  .arrow-menu:hover + .icons-for-menu-hidden,
+  #menu-toggle:checked + .for-hover,
+  #menu-toggle:checked + .icons-for-menu-hidden {
     display: block;
   }
   .left-stuff:hover .arrow-menu,
   .for-hover:hover ~ .arrow-menu,
-  .icons-for-menu-hidden:hover ~ .arrow-menu {
+  .icons-for-menu-hidden:hover ~ .arrow-menu,
+  #menu-toggle:checked ~ .arrow-menu {
     transform: rotate(90deg);
   }
   /* CORRECCIÓN HERO ------------------------------ */

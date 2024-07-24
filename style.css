@@ -130,6 +130,7 @@ nav {
 }
 /* HERO -------------------------------------------- */
 .hero-all {
+  max-height: 620px;
   height: 80vh;
   min-height: 480px;
   padding-top: var(--KM-padding-l);
@@ -458,7 +459,7 @@ footer p {
   display: none;
 }
 /* MEDIA QUERIES -------------------------------- */
-@media (max-width: 800px) and (min-width: 570px) {
+@media (max-width: 820px) and (min-width: 570px) {
   /* MENÚ DESPLEGABLE --------------------------- */
   .arrow-menu {
     display: block;

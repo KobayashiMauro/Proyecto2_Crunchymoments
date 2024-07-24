@@ -130,7 +130,6 @@ nav {
 }
 /* HERO -------------------------------------------- */
 .hero-all {
-  max-height: 620px;
   height: 80vh;
   min-height: 480px;
   padding-top: var(--KM-padding-l);

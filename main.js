@@ -269,9 +269,13 @@ let searchButton = document.getElementById('form-simple-button');
 let searchBar = document.getElementById('search-text');
 let cardsContainer = document.querySelector('div.cards');
 let popularContainer = document.querySelector('div.popular');
+let randomContainer = document.querySelector('div.random');
 let animeSelector = document.getElementById('anime-list');
-let buttonGo = document.querySelector('.button-go');
-
+let filterButton = document.querySelector('.button-go');
+let filterForm = document.getElementById('form-detailed');
+let resetButton = document.querySelector('.button-reset');
+let notFoundText = document.querySelector('div.notFoundText');
+let menuArrow = document.querySelector('arrow-menu');
 /* FUNCTIONS ----------------------------------------------- */
 //General
 function createCards(param, container) {
@@ -374,6 +378,12 @@ function printCards(param) {
   cardsContainer.innerHTML = '';
   createCards(param, cardsContainer);
 }
+//Random
+function printRandom(param) {
+  cardsContainer.innerHTML = '';
+  randomContainer.innerHTML = '';
+  createCards(param, randomContainer);
+}
 //Para crear las options de "anime-list"/selector
 function animeList(param, container) {
   const uniqueAnimes = [];
@@ -389,61 +399,93 @@ function animeList(param, container) {
     container.appendChild(option);
   }
 }
-//Filtro "searchbar"
-const searchAll = function searchEvent(event) {
-  event.preventDefault();
-  let searchInputText = searchBar.value.toLowerCase();
-  const resultArray = [];
-  for (const moment of moments) {
-    let searchCounter = parseInt(moment.searchCount);
-    let momentInfo = moment.moment.toLowerCase();
-    let animeInfo = moment.anime.toLowerCase();
-    for (const character of moment.characters) {
-      for (const key in character) {
-        if (character.hasOwnProperty(key)) {
-          let momentInfoTrue = momentInfo.includes(searchInputText);
-          let animeInfoTrue = animeInfo.includes(searchInputText);
-          let characterInfoTrue = character[key].toLowerCase().includes(searchInputText);
-          if (characterInfoTrue) {
-            console.log(moment);
-            resultArray.push(moment);
-            searchCounter += 1;
-            moment.searchCount = searchCounter.toString();
-            printPopular(moments);
-            break;
-          }
-          if (animeInfoTrue) {
-            console.log(moment);
-            resultArray.push(moment);
-            searchCounter += 1;
-            moment.searchCount = searchCounter.toString();
-            printPopular(moments);
-            break;
-          }
-          if (momentInfoTrue) {
-            console.log(moment);
-            resultArray.push(moment);
-            searchCounter += 1;
-            moment.searchCount = searchCounter.toString();
-            printPopular(moments);
-            break;
-          }
-        }
-      }
+//Función para crear array nuevo con elementos aleatorios
+function getRandomElements(param) {
+  const randomMomentsArray = [];
+  while (randomMomentsArray.length < 7) {
+    let randomElement = Math.floor(Math.random() * moments.length);
+    if (randomMomentsArray.includes(moments[randomElement]) == false) {
+      randomMomentsArray.push(moments[randomElement]);
+    } else {
+      continue;
     }
   }
-  cardsContainer.innerHTML = '';
-  printCards(resultArray);
-  console.log(resultArray);
-};
-//Otros filtros
-const otherFilters = function (event) {
-  console.log(resultArray);
-};
+  printRandom(randomMomentsArray);
+}
+// Función para aplicar todos los filtros
+const applyFilters = (isSearchEvent) => {
+  let searchInputText = searchBar.value.toLowerCase();
+  let selectAnime = animeSelector.value;
+  let episodeFilter = document.querySelector('.radio-inputs > input:checked');
+  let episodeValue = episodeFilter ? episodeFilter.value : '';
 
+  const filteredResults = moments.filter((moment) => {
+    let matchesSearch =
+      searchInputText === '' ||
+      moment.moment.toLowerCase().includes(searchInputText) ||
+      moment.anime.toLowerCase().includes(searchInputText) ||
+      moment.characters.some((character) => {
+        return Object.values(character).some((value) => value.toLowerCase().includes(searchInputText));
+      });
+
+    let matchesAnime = selectAnime === '' || moment.anime === selectAnime;
+
+    let matchesEpisodes =
+      episodeValue === '' ||
+      (episodeValue === 'under5' && moment.episodes < 5) ||
+      (episodeValue === '5to20' && moment.episodes >= 5 && moment.episodes <= 20) ||
+      (episodeValue === '20to50' && moment.episodes >= 20 && moment.episodes <= 50) ||
+      (episodeValue === 'more50' && moment.episodes > 50);
+
+    return matchesSearch && matchesAnime && matchesEpisodes;
+  });
+  for (const moment of filteredResults) {
+    let searchCounter = parseInt(moment.searchCount) || 0;
+    searchCounter += 1;
+    moment.searchCount = searchCounter.toString();
+  }
+
+  if (filteredResults.length === 0) {
+    notFoundText.innerHTML = '';
+    let notFoundPCONTAINER = document.createElement('p');
+    let notFoundH3CONTAINER = document.createElement('h3');
+    let notFoundPCONTENT = document.createTextNode('No se han encontrado momentos así...');
+    let notFoundH3CONTENT = document.createTextNode('Échale un vistazo a estos otros momentazos');
+    notFoundPCONTAINER.appendChild(notFoundPCONTENT);
+    notFoundH3CONTAINER.appendChild(notFoundH3CONTENT);
+    notFoundText.appendChild(notFoundPCONTAINER);
+    notFoundText.appendChild(notFoundH3CONTAINER);
+    getRandomElements(moments);
+  } else {
+    notFoundText.innerHTML = '';
+    randomContainer.innerHTML = '';
+    printCards(filteredResults);
+  }
+
+  printPopular(moments);
+  printCards(filteredResults);
+};
+//Para "searchAll"/search bar
+const searchAll = function searchEvent(event) {
+  event.preventDefault();
+  applyFilters();
+};
+//Para los filtros adicionales
+const otherFilters = function filterEvent(event) {
+  event.preventDefault();
+  applyFilters();
+};
+// Reseteo de filtros y búsqueda
+resetButton.addEventListener('click', () => {
+  searchBar.value = '';
+  animeSelector.value = '';
+  document.querySelectorAll('input[name="episodes"]').forEach((radio) => (radio.checked = false));
+  applyFilters();
+});
 /* FUNCTION CALLS & EVENTS --------------------------------------------- */
 printCards(moments); //all
 printPopular(moments);
 animeList(moments, animeSelector);
-searchButton.onclick = searchAll;
-buttonGo.onclick = otherFilters;
+searchButton.addEventListener('click', searchAll);
+filterButton.addEventListener('click', otherFilters);
+applyFilters();

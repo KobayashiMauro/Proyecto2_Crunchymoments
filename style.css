@@ -444,6 +444,7 @@ footer p {
 .menu-container {
   display: none;
   height: 25px;
+  width: 40px;
 }
 .menu-container > input {
   display: none;
@@ -476,14 +477,15 @@ footer p {
     text-align: left;
     padding: 1rem 0;
   }
-  .menu-container:hover .for-hover,
-  .for-hover:hover {
+  .left-stuff:hover .for-hover,
+  .for-hover:hover,
+  .arrow-menu:hover + .for-hover {
     display: block;
   }
   #menu-toggle:checked ~ .for-hover {
     display: block;
   }
-  .menu-container:hover .arrow-menu img,
+  .left-stuff:hover .arrow-menu img,
   .for-hover:hover ~ .arrow-menu img {
     transform: rotate(90deg);
   }
@@ -546,9 +548,9 @@ footer p {
     text-align: left;
     padding: 1rem 0;
   }
-  .menu-container:hover .for-hover,
+  .left-stuff:hover .for-hover,
   .for-hover:hover,
-  .menu-container:hover .icons-for-menu-hidden,
+  .left-stuff:hover .icons-for-menu-hidden,
   .icons-for-menu-hidden:hover,
   .arrow-menu:hover + .for-hover,
   .arrow-menu:hover + .icons-for-menu-hidden {
@@ -558,7 +560,7 @@ footer p {
   #menu-toggle:checked + .icons-for-menu-hidden {
     display: block;
   }
-  .menu-container:hover .arrow-menu img,
+  .left-stuff:hover .arrow-menu img,
   .for-hover:hover ~ .arrow-menu img,
   .icons-for-menu-hidden:hover ~ .arrow-menu img {
     transform: rotate(90deg);

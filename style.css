@@ -476,14 +476,14 @@ footer p {
     text-align: left;
     padding: 1rem 0;
   }
-  .left-stuff:hover .for-hover,
+  .menu-container:hover .for-hover,
   .for-hover:hover {
     display: block;
   }
   #menu-toggle:checked ~ .for-hover {
     display: block;
   }
-  .left-stuff:hover .arrow-menu img,
+  .menu-container:hover .arrow-menu img,
   .for-hover:hover ~ .arrow-menu img {
     transform: rotate(90deg);
   }
@@ -546,9 +546,9 @@ footer p {
     text-align: left;
     padding: 1rem 0;
   }
-  .left-stuff:hover .for-hover,
+  .menu-container:hover .for-hover,
   .for-hover:hover,
-  .left-stuff:hover .icons-for-menu-hidden,
+  .menu-container:hover .icons-for-menu-hidden,
   .icons-for-menu-hidden:hover,
   .arrow-menu:hover + .for-hover,
   .arrow-menu:hover + .icons-for-menu-hidden {
@@ -558,7 +558,7 @@ footer p {
   #menu-toggle:checked + .icons-for-menu-hidden {
     display: block;
   }
-  .left-stuff:hover .arrow-menu img,
+  .menu-container:hover .arrow-menu img,
   .for-hover:hover ~ .arrow-menu img,
   .icons-for-menu-hidden:hover ~ .arrow-menu img {
     transform: rotate(90deg);
